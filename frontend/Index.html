@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Index</title>
 </head>
 <body>
+    <h1 id="titulo">Cadastrar Aluno</h1>
+    
     <div><label>Nome:<input id="nome" type="text"></label></div>
     <div><label>SobreNome:</label><input id="sobrenome" type="text"></div>
     <div><label>Telefone:</label><input id="telefone" type="text"></div>
     <div><label>RA</label><input id="ra" type="text"></div>
     <div>
-        <button onclick="Cadastrar()">Cadastrar</button>
-        <button>Limpar</button>
+        <button id="btnSalvar" onclick="Cadastrar()">Cadastrar</button>
+        <button id="btnCancelar" onclick="Cancelar()">Limpar</button>
     </div>
     <table border="1">
         <thead>
@@ -84,7 +86,22 @@
        carregaEstudantes('GET');
 
        function editarEstudantes(id){
+           var btnSalvar = document.querySelector('#btnSalvar');
+           var btnCancelar = document.querySelector('#btnCancelar');
+
+           btnSalvar.textContent = 'Salvar';
+           btnCancelar.textContent = 'Cancelar';
+
            console.log(id)
+       }
+
+       function Cancelar(){
+           var btnSalvar = document.querySelector('#btnSalvar');
+           var btnCancelar = document.querySelector('#btnCancelar');
+
+           btnSalvar.textContent = 'Cadastrar';
+           btnCancelar.textContent = 'Limpar';
+
        }
 
        function adicionaLinha(estudante) {
